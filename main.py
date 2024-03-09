@@ -5,16 +5,16 @@
 from src.password_validator import validate_passwords
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
-    input_password = {"Fasqwr1234@1", "aF145#", "2w3E*", "2We3345"}
-    output = validate_passwords(input_password)
-    print(output)
+def main():
+    with open('input/passwords.txt', 'r') as file:
+        passwords = file.read().split(',')
+    print(passwords)
+    accepted_passwords = validate_passwords(passwords)
+    print("Accepted passwords:", ",".join(accepted_passwords))
 
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
+    main()
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
